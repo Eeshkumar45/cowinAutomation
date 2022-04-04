@@ -6,15 +6,22 @@ from selenium.webdriver.common.by import By
 import winsound
 frequency = 2500
 duration = 100
+"""
+change driver path
+change values at pg.click(x,y) -> find using pg.position()
 
+"""
 driver = webdriver.Chrome("C:\\Users\\eeshk\\Downloads\\chromedriver.exe")
 
 driver.get("https://app.cowin.gov.in/")
 driver.maximize_window()
 
-driver.find_element(By.XPATH, value='//*[@id="login"]/div/form/ion-item[1]/ion-input/input').send_keys(9963149126)
+phoneNo = 9999
+password = "pass"
+#hiding hone,pass
+driver.find_element(By.XPATH, value='//*[@id="login"]/div/form/ion-item[1]/ion-input/input').send_keys(phoneNo)
 
-driver.find_element(By.XPATH, value='//*[@id="login"]/div/form/ion-item[2]/ion-input/input').send_keys("Covin@123")
+driver.find_element(By.XPATH, value='//*[@id="login"]/div/form/ion-item[2]/ion-input/input').send_keys(password)
 
 driver.find_element(By.XPATH, value='//*[@id="login"]/div/form/ion-button[1]').click()
 
@@ -47,12 +54,18 @@ while True:
         print("unable to select user. Do it yourselfs")
         input("Then press enter")
     time.sleep(1)
-    try:
+    """try:
         driver.find_element(By.XPATH,'//*[@id="main-content"]/app-vaccinate-beneficiary/ion-content/div/ion-grid/ion-row/ion-col/div/ion-row/ion-col/app-vaccine-benificiary-verify-otp/ion-grid/ion-row/ion-col[2]/div[3]/form/ion-row').click()
     except:
         winsound.Beep(frequency, duration)
         print("unable to press 'verify using other...'. Do it yourselfs")
         input("Then press enter")
+       """
+    time.sleep(2)
+    pg.scroll(-10000)
+    time.sleep(2)
+    pg.click(911,594)
+
     time.sleep(2)
     fun()
 
